@@ -25,5 +25,6 @@ jobs:
           dotnet pack -o out --configuration Release
           cp ./.github/workflows/nuget.config ./
           dotnet nuget push SierraLib.API.Views/out/*.nupkg -s GitHub
+          dotnet nuget push SierraLib.API.Views/out/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
