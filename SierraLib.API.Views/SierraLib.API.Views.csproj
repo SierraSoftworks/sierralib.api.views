@@ -12,11 +12,13 @@
     <ProjectUrl>https://github.com/sierrasoftworks/sierralib.api.views</ProjectUrl>
     <RepositoryUrl>https://github.com/sierrasoftworks/sierralib.api.views.git</RepositoryUrl>
     <Description>
-      This library provides a pair of interfaces and some extension methods which act as a framework
-      on which you can build and maintain multiple, versioned, views into your core data models. It
-      has been designed to work in concert with good API design patterns like versioned endpoints
-      and semantic versioning to simplify the development of backwards compatible API surfaces as
-      your services evolve.
+This library provides a pair of interfaces and some extension methods which
+act as a framework on which you can build and maintain multiple, versioned,
+views into your core data models.
+
+It has been designed to work in concert with good API design patterns like
+versioned endpoints and semantic versioning to simplify the development of
+backwards compatible API surfaces as your services evolve.
     </Description>
 
     <MinVerTagPrefix>v</MinVerTagPrefix>
