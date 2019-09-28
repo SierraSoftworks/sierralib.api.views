@@ -21,5 +21,4 @@ jobs:
       - name: Publish the package
         run: |
           dotnet pack -o out --configuration Release
-          nuget source Add -Name "GitHub" -Source https://nuget.pkg.github.com/SierraSoftworks/index.json -UserName SierraSoftworks -Password ${{ secrets.GITHUB_TOKEN }}
-          dotnet nuget push SierraLib.API.Views/out/*.nupkg -Source "GitHub"
+          dotnet nuget push SierraLib.API.Views/out/*.nupkg -s "https://SierraSoftworks:${{ secrets.GITHUB_TOKEN }}@nuget.pkg.github.com/SierraSoftworks/index.json"
