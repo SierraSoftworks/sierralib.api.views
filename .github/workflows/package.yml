@@ -21,4 +21,4 @@ jobs:
       - name: Publish the package
         run: |
           dotnet pack -o out --configuration Release
-          dotnet nuget push ./out/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/SierraSoftworks/index.json
+          dotnet nuget push SierraLib.API.Views/out/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/SierraSoftworks/index.json
