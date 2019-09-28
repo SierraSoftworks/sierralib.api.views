@@ -5,7 +5,7 @@ namespace SierraLib.API.Views.Tests
     using NUnit.Framework;
     using SierraLib.API.Views.Examples;
 
-    public class RepresenterExtensionsTests
+    public class IRepresenterExtensionsTests
     {
         private readonly IRepresenter<UserProfile, UserProfile.Version1> representer = new UserProfile.Version1.Representer();
 
