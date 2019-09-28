@@ -2,6 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+
+    <PackageId>SierraLib.API.Views</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>bpannell</Authors>
+    <Company>Sierra Softworks</Company>
+    <Copyright>Copyright © 2019 Sierra Softworks</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/sierrasoftworks/sierralib.api.views.git</RepositoryUrl>
+    <Description>
+      This library provides a pair of interfaces and some extension methods which act as a framework
+      on which you can build and maintain multiple, versioned, views into your core data models. It
+      has been designed to work in concert with good API design patterns like versioned endpoints
+      and semantic versioning to simplify the development of backwards compatible API surfaces as
+      your services evolve.
+    </Description>
   </PropertyGroup>
 
   <ItemGroup>
