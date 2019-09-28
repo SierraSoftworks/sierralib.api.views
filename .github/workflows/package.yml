@@ -1,0 +1,35 @@
+name: Publish NuGet Package
+
+on:
+  push:
+    branches:
+      - master
+      - release/*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.0.100
+    - name: Install the dotnet-setversion tool
+      run: dotnet tool install -g dotnet-setversion
+    - name: Fetch latest tags
+      run: git fetch --tags
+    - name: Determine version
+      run: git describe --tags
+      id: version
+    - name: Update the package versions
+      run: setversion $(git describe --tags)
+    - name: Test with dotnet
+      run: dotnet test
+    - name: Package with dotnet
+      run: dotnet pack -o out --configuration Release
+    - name: Publish the package
+      run: dotnet nuget push ./out/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/SierraSoftworks/index.json
+      
