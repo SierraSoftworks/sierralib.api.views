@@ -30,7 +30,7 @@ backwards compatible API surfaces as your services evolve.
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
-    <PackageReference Include="MinVer" Version="2.3.1">
+    <PackageReference Include="MinVer" Version="2.4.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
