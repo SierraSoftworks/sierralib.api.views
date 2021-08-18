@@ -27,6 +27,5 @@ jobs:
           cp ./.github/workflows/nuget.config ./
           dotnet nuget push out/*.nupkg -s GitHub --skip-duplicate
           dotnet nuget push out/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
-          dotnet nuget push out/*.snupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
