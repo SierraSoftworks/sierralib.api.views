@@ -18,10 +18,16 @@ versioned endpoints and semantic versioning to simplify the development of
 backwards compatible API surfaces as your services evolve.
     </Description>
     <Tags>api version models asp.net rest</Tags>
+
+    <!-- TODO: This should be enabled once .NET passes verification correctly -->
+    <!-- <PackageReadmeFile>README.md</PackageReadmeFile> -->
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+      <None Include="../README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
 </Project>

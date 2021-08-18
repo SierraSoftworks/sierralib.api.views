@@ -10,7 +10,6 @@
         <ProjectUrl>https://github.com/sierrasoftworks/sierralib.api.views</ProjectUrl>
         <RepositoryUrl>https://github.com/sierrasoftworks/sierralib.api.views.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
 
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
@@ -25,9 +24,5 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
         <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.231" PrivateAssets="all" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include="$(MSBuildThisFileDirectory)\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 </Project>
