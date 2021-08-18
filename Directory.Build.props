@@ -1,9 +1,29 @@
 <Project>
     <PropertyGroup>
+        <AnalysisMode>AllEnabledByDefault</AnalysisMode>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+        <Authors>Benjamin Pannell</Authors>
+        <Company>Sierra Softworks</Company>
+        <Copyright>Copyright © 2021 Sierra Softworks</Copyright>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <ProjectUrl>https://github.com/sierrasoftworks/sierralib.api.views</ProjectUrl>
+        <RepositoryUrl>https://github.com/sierrasoftworks/sierralib.api.views.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <DebugType>embedded</DebugType>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+        <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.231" PrivateAssets="all" />
     </ItemGroup>
 </Project>

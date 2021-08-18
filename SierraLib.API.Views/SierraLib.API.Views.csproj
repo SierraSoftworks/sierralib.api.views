@@ -5,12 +5,6 @@
 
     <PackageId>SierraLib.API.Views</PackageId>
     <Version>0.1.0</Version>
-    <Authors>bpannell</Authors>
-    <Company>Sierra Softworks</Company>
-    <Copyright>Copyright © 2019 Sierra Softworks</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <ProjectUrl>https://github.com/sierrasoftworks/sierralib.api.views</ProjectUrl>
-    <RepositoryUrl>https://github.com/sierrasoftworks/sierralib.api.views.git</RepositoryUrl>
     <Summary>This library provides a pair of interfaces and some extension methods which
 act as a framework on which you can build and maintain multiple, versioned,
 views into your core data models.</Summary>
@@ -24,16 +18,10 @@ versioned endpoints and semantic versioning to simplify the development of
 backwards compatible API surfaces as your services evolve.
     </Description>
     <Tags>api version models asp.net rest</Tags>
-
-    <MinVerTagPrefix>v</MinVerTagPrefix>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
-    <PackageReference Include="MinVer" Version="2.5.0">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
   </ItemGroup>
 
 </Project>

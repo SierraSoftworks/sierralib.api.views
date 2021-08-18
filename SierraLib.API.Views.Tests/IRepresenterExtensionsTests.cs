@@ -12,7 +12,7 @@ namespace SierraLib.API.Views.Tests
         [Test]
         public void TestToViewOrDefault()
         {
-            var model = this.CreateUserProfile();
+            var model = CreateUserProfile();
 
             this.representer.ToViewOrDefault(null).Should().BeNull("when we pass a null value it should return null");
             this.representer.ToViewOrDefault(model).Should().NotBeNull("when we pass a non-null value we should return the view");
@@ -21,7 +21,7 @@ namespace SierraLib.API.Views.Tests
         [Test]
         public void TestToModelOrDefault()
         {
-            var model = this.CreateUserProfile();
+            var model = CreateUserProfile();
             var view = this.representer.ToView(model);
             view.Should().NotBeNull("the view should not be null");
 
@@ -33,7 +33,7 @@ namespace SierraLib.API.Views.Tests
             this.representer.ToViewOrDefault(model).Should().NotBeNull("when we pass a non-null value we should return the view");
         }
 
-        private UserProfile CreateUserProfile()
+        private static UserProfile CreateUserProfile()
         {
             return new UserProfile
             {
