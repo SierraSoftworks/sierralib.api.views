@@ -28,4 +28,8 @@
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
         <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.231" PrivateAssets="all" />
     </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(MSBuildThisFileDirectory)\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
 </Project>
