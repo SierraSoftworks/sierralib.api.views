@@ -35,18 +35,18 @@ jobs:
       - name: Build the package
         run: dotnet pack -o out --configuration Release
 
-      - name: Get NuGet API token
-        id: nuget-token
-        run: |
-          TOKEN=$(curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=nuget.org" | jq -r '.value')
-          echo "::add-mask::$TOKEN"
-          echo "token=$TOKEN" >> "$GITHUB_OUTPUT"
-
-      - name: Publish the package
+      - name: Publish to GitHub Packages
         run: |
           cp ./.github/workflows/nuget.config ./
           dotnet nuget push out/*.nupkg -s GitHub --skip-duplicate
-          dotnet nuget push out/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ steps.nuget-token.outputs.token }} --skip-duplicate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: nuget-login
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Publish to NuGet.org
+        run: dotnet nuget push out/*.nupkg --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
