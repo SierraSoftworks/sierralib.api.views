@@ -19,8 +19,7 @@ backwards compatible API surfaces as your services evolve.
     </Description>
     <Tags>api version models asp.net rest</Tags>
 
-    <!-- TODO: This should be enabled once .NET passes verification correctly -->
-    <!-- <PackageReadmeFile>README.md</PackageReadmeFile> -->
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
