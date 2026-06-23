@@ -46,9 +46,9 @@
       },
       "NUnit": {
         "type": "Direct",
-        "requested": "[4.0.0, )",
-        "resolved": "4.0.0",
-        "contentHash": "hvSDhron6affk3FwBPjEQSn3mnhYi4EZZUB74CRd+vkiSVhewpp4Z6pI2m4IQV7H1oiUlDz2PQXbuAYT6P0Ggg=="
+        "requested": "[4.6.1, )",
+        "resolved": "4.6.1",
+        "contentHash": "xS4+YaBFUv1r8bcAbjitSfYaRZGfMwUiMdiaRziBXZpKgVxKDSHhjUn0mV5mObHGZRZq6eNa+WFWr3g8grj66A=="
       },
       "NUnit3TestAdapter": {
         "type": "Direct",
