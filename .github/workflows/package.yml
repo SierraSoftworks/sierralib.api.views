@@ -11,6 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
       - uses: actions/checkout@v7
         with:
@@ -27,11 +31,21 @@ jobs:
       - name: Test the package
         run: dotnet test
 
+      - name: Build the package
+        run: dotnet pack -o out --configuration Release
+
+      - name: Get NuGet API token
+        id: nuget-token
+        run: |
+          TOKEN=$(curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=nuget.org" | jq -r '.value')
+          echo "::add-mask::$TOKEN"
+          echo "token=$TOKEN" >> "$GITHUB_OUTPUT"
+
       - name: Publish the package
         run: |
-          dotnet pack -o out --configuration Release
           cp ./.github/workflows/nuget.config ./
           dotnet nuget push out/*.nupkg -s GitHub --skip-duplicate
-          dotnet nuget push out/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+          dotnet nuget push out/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ steps.nuget-token.outputs.token }} --skip-duplicate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
